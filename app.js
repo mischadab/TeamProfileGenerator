@@ -1,6 +1,6 @@
 const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
+// const Engineer = require("./lib/Engineer");
+// const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -10,7 +10,47 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const employeeArr = []
+const idArr = []
 
+
+const runApp = () => {
+    // function for manager prompts
+    const makeManager = () => {
+        inquirer.prompt([
+            { 
+                type: 'input',
+                name: 'managerName',
+                message: "What is your manager's name?"
+            },
+            {
+                type: 'input',
+                name: 'managerId',
+                message: "What is your manager's ID?",
+            },
+            {
+                type: 'input',
+                name: 'managerEmail',
+                message: "What is your  manager's email?"
+            },
+            {
+                type: 'input',
+                name: 'officeNumber',
+                message: "What is your manager's office number?"
+            },
+        ]).then(answers => {
+            const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber)
+            employeeArr.push(manager);
+            idArr.push(answers.managerId);
+            makeTeam();
+        })
+    }
+    makeManager();
+    
+    
+}
+
+runApp();
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
@@ -34,71 +74,52 @@ const render = require("./lib/htmlRenderer");
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
 
-const questions = [
-    { 
-        type: 'input',
-        name: 'manager',
-        message: 'What is your name?'
-    },
-    {
-        type: 'input',
-        name: 'id',
-        message: 'What is your ID?',
-    },
-    {
-        type: 'input',
-        name: 'email',
-        message: 'What is your email?'
-    },
-    {
-        type: 'input',
-        name: 'officeNumber',
-        message: 'What is your office number?'
-    },
-    {
-        type: 'list',
-        name: 'employee',
-        message: 'Would you like to enter another employee?',
-        choices: ['Engineer', 'Intern', 'I am finished']
-    },
-    { 
-        type: 'input',
-        name: 'manager',
-        message: 'What is your Engineers name?'
-    },
-    {
-        type: 'input',
-        name: 'id',
-        message: 'What is your Engineers ID?',
-    },
-    {
-        type: 'input',
-        name: 'email',
-        message: 'What is your Engineers email?'
-    },
-    {
-        type: 'input',
-        name: 'github',
-        message: 'What is your Engineers GitHub?'
-    }
-    { 
-        type: 'input',
-        name: 'manager',
-        message: 'What is your Interns name?'
-    },
-    {
-        type: 'input',
-        name: 'id',
-        message: 'What is your Interns ID?',
-    },
-    {
-        type: 'input',
-        name: 'email',
-        message: 'What is your Interns email?'
-    },
-    {
-        type: 'input',
-        name: 'school',
-        message: 'What school do your intern attend?'
-    }
-]
+// const questions = [
+
+//     {
+//         type: 'list',
+//         name: 'employee',
+//         message: 'Would you like to enter another employee?',
+//         choices: ['Engineer', 'Intern', 'I am finished']
+//     },
+//     { 
+//         type: 'input',
+//         name: 'manager',
+//         message: 'What is your Engineers name?'
+//     },
+//     {
+//         type: 'input',
+//         name: 'id',
+//         message: 'What is your Engineers ID?',
+//     },
+//     {
+//         type: 'input',
+//         name: 'email',
+//         message: 'What is your Engineers email?'
+//     },
+//     {
+//         type: 'input',
+//         name: 'github',
+//         message: 'What is your Engineers GitHub?'
+//     },
+//     { 
+//         type: 'input',
+//         name: 'manager',
+//         message: 'What is your Interns name?'
+//     },
+//     {
+//         type: 'input',
+//         name: 'id',
+//         message: 'What is your Interns ID?',
+//     },
+//     {
+//         type: 'input',
+//         name: 'email',
+//         message: 'What is your Interns email?'
+//     },
+//     {
+//         type: 'input',
+//         name: 'school',
+//         message: 'What school do your intern attend?'
+//     }
+// ]
