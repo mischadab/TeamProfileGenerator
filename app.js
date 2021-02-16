@@ -45,8 +45,31 @@ const runApp = () => {
             makeTeam();
         })
     }
+    // function to prompt user to choose team members and to run assigned functions using switch case
+    const makeTeam = () => {
+        inquirer.prompt([
+        {
+            type: 'list',
+            name: 'employeeChoice',
+            message: 'Would you like to enter another employee?',
+            choices: ['Engineer', 'Intern', 'I am finished']
+        }
+        ]).then(choice => { 
+            // using switch case I learned on codecademy
+            switch(choice.employeeChoice) {
+                case "Engineer": 
+                    makeEngineer();
+                    break;
+                case "Intern":
+                    makeIntern();
+                    break;
+                default:
+                    generateTeam();
+            }
+        })
+    }
+
     makeManager();
-    
     
 }
 
