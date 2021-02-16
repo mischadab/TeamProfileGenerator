@@ -34,12 +34,11 @@ const render = require("./lib/htmlRenderer");
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
 
-const employeeQuestions = [
+const questions = [
     { 
-        type: 'list',
-        name: 'name',
-        message: 'What is your role?',
-        choices: ['Employee', 'Manager', 'Engineer', 'Intern']
+        type: 'input',
+        name: 'manager',
+        message: 'What is your name?'
     },
     {
         type: 'input',
@@ -50,29 +49,56 @@ const employeeQuestions = [
         type: 'input',
         name: 'email',
         message: 'What is your email?'
-    }
-]
-
-const managerQuestions = [
+    },
     {
         type: 'input',
         name: 'officeNumber',
         message: 'What is your office number?'
-    }
-]
-
-const engineerQuestions = [
+    },
+    {
+        type: 'list',
+        name: 'employee',
+        message: 'Would you like to enter another employee?',
+        choices: ['Engineer', 'Intern', 'I am finished']
+    },
+    { 
+        type: 'input',
+        name: 'manager',
+        message: 'What is your Engineers name?'
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: 'What is your Engineers ID?',
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'What is your Engineers email?'
+    },
     {
         type: 'input',
         name: 'github',
-        message: 'What is your GitHub?'
+        message: 'What is your Engineers GitHub?'
     }
-]
-
-const internQuestions = [
+    { 
+        type: 'input',
+        name: 'manager',
+        message: 'What is your Interns name?'
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: 'What is your Interns ID?',
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'What is your Interns email?'
+    },
     {
         type: 'input',
         name: 'school',
-        message: 'What school do you attend?'
+        message: 'What school do your intern attend?'
     }
 ]
