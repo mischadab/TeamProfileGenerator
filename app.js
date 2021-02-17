@@ -1,6 +1,6 @@
 const Manager = require("./lib/Manager");
-// const Engineer = require("./lib/Engineer");
-// const Intern = require("./lib/Intern");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -12,7 +12,6 @@ const render = require("./lib/htmlRenderer");
 
 const employeeArr = []
 const idArr = []
-
 
 const runApp = () => {
     // function for manager prompts
@@ -98,7 +97,6 @@ const runApp = () => {
             makeTeam();
         })
     }
-
     // function for Intern prompts
     const makeIntern = () => {
         inquirer.prompt([
@@ -129,7 +127,6 @@ const runApp = () => {
             makeTeam();
         })
     }
-
     // function to create output directory
     const generateTeam = () => {
         // if output directory doesnt exist, make one
@@ -139,8 +136,7 @@ const runApp = () => {
         fs.writeFileSync(outputPath, render(employeeArr), "utf-8")
     }
 
-    makeManager();
-    
+    makeManager(); 
 }
 
 runApp();
