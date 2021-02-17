@@ -91,11 +91,14 @@ const runApp = () => {
                 name: 'github',
                 message: "What is your Engineer's GitHub?"
             }
-        ])
+        ]).then(answers => {
+            const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.github)
+            employeeArr.push(engineer);
+            idArr.push(answers.engineerId)
+        })
     }
 
     // function for Intern prompts
-
 
     // function to create output directory
     const generateTeam = () => {
