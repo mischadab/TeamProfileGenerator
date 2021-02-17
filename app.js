@@ -68,6 +68,18 @@ const runApp = () => {
             }
         })
     }
+    // function for Engineer prompts
+ 
+    // function for Intern prompts
+
+    // function to create output directory
+    const generateTeam = () => {
+        // if output directory doesnt exist, make one
+        if(!fs.existsSync(OUTPUT_DIR)){
+            fs.mkdirSync(OUTPUT_DIR)
+        }
+        fs.writeFileSync(outputPath, render(employeeArr), "utf-8")
+    }
 
     makeManager();
     
