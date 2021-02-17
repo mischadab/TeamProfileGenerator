@@ -27,4 +27,4 @@
  
 
   ## Video
-  ![Video Demo](assets/TeamGenerator.mov?raw=true)
+  ![Video Demo](assets/TeamGenerator.gif?raw=true)
