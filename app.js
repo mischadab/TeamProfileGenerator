@@ -95,10 +95,40 @@ const runApp = () => {
             const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.github)
             employeeArr.push(engineer);
             idArr.push(answers.engineerId)
+            makeTeam();
         })
     }
 
     // function for Intern prompts
+    const makeIntern = () => {
+        inquirer.prompt([
+            {
+                type: 'input',
+                name: 'internName',
+                message: "What is your Intern's name?"
+            },
+            {
+                type: 'input',
+                name: 'internId',
+                message: "What is your Intern's ID?",
+            },
+            {
+                type: 'input',
+                name: 'internEmail',
+                message: "What is your Intern's email?"
+            },
+            {
+                type: 'input',
+                name: 'school',
+                message: 'What school does your intern attend?'
+            }
+        ]).then(answers => {
+            const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.school)
+            employeeArr.push(engineer);
+            idArr.push(answers.internId)
+            makeTeam();
+        })
+    }
 
     // function to create output directory
     const generateTeam = () => {
@@ -137,45 +167,3 @@ runApp();
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
 
-
-//     { 
-//         type: 'input',
-//         name: 'manager',
-//         message: 'What is your Engineers name?'
-//     },
-//     {
-//         type: 'input',
-//         name: 'id',
-//         message: 'What is your Engineers ID?',
-//     },
-//     {
-//         type: 'input',
-//         name: 'email',
-//         message: 'What is your Engineers email?'
-//     },
-//     {
-//         type: 'input',
-//         name: 'github',
-//         message: 'What is your Engineers GitHub?'
-//     },
-//     { 
-//         type: 'input',
-//         name: 'manager',
-//         message: 'What is your Interns name?'
-//     },
-//     {
-//         type: 'input',
-//         name: 'id',
-//         message: 'What is your Interns ID?',
-//     },
-//     {
-//         type: 'input',
-//         name: 'email',
-//         message: 'What is your Interns email?'
-//     },
-//     {
-//         type: 'input',
-//         name: 'school',
-//         message: 'What school do your intern attend?'
-//     }
-// ]
