@@ -69,8 +69,33 @@ const runApp = () => {
         })
     }
     // function for Engineer prompts
- 
+    const makeEngineer = () => {
+        inquirer.prompt([
+            { 
+                type: 'input',
+                name: 'engineerName',
+                message: "What is your Engineer's name?"
+            },
+            {
+                type: 'input',
+                name: 'engineerId',
+                message: "What is your Engineer's ID?",
+            },
+            {
+                type: 'input',
+                name: 'engineerEmail',
+                message: "What is your Engineer's email?"
+            },
+            {
+                type: 'input',
+                name: 'github',
+                message: "What is your Engineer's GitHub?"
+            }
+        ])
+    }
+
     // function for Intern prompts
+
 
     // function to create output directory
     const generateTeam = () => {
@@ -109,14 +134,7 @@ runApp();
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
 
-// const questions = [
 
-//     {
-//         type: 'list',
-//         name: 'employee',
-//         message: 'Would you like to enter another employee?',
-//         choices: ['Engineer', 'Intern', 'I am finished']
-//     },
 //     { 
 //         type: 'input',
 //         name: 'manager',
