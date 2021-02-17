@@ -25,6 +25,8 @@
   npm test
   ```
  
-
+  ## Screenshot
+  ![Screenshot](assets/SS1.png?raw=true)
+  
   ## Video
   ![Video Demo](assets/TeamGenerator.gif?raw=true)
