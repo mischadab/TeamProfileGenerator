@@ -124,7 +124,7 @@ const runApp = () => {
             }
         ]).then(answers => {
             const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.school)
-            employeeArr.push(engineer);
+            employeeArr.push(intern);
             idArr.push(answers.internId)
             makeTeam();
         })
